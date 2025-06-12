@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: 
+        url('https://www.transparenttextures.com/patterns/roses.png'), 
+        linear-gradient(135deg, #fbd6e3, #ffeaf4);
+    background-repeat: repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.welcome-card {
+    background: #fff0f5;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px dashed #f8b7cc;
+}
+
+h1 {
+    color: #d36c9b;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+p {
+    color: #b56e87;
+    margin: 10px 0;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.logout-button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: #f8b7cc;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+    background: #e49ab3;
+}

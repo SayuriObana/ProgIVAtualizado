@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewpoint' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" href="Css/bem-vindo.css">
+    <title>TrabalhoProgIV - Bem-vindo</title>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-card">
+            <h1>Bem-vindo(a)!</h1>
+            <p id="welcome-message"></p>
+            <p id="expiration-message"></p>
+            <button onclick="logout()" class="logout-button">Sair</button>
+        </div>
+    </div>
+
+    <script>
+        // Verificar se existe um token válido
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = 'index.html';
+        }
+
+        // Obter parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        const expiracao = urlParams.get('expiracao');
+
+        // Formatar a data de expiração
+        function formatarData(dataString) {
+            const data = new Date(dataString);
+            return data.toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
+
+        // Atualizar mensagens
+        document.getElementById('welcome-message').textContent = `Seja bem-vindo(a), ${email}!`;
+        document.getElementById('expiration-message').textContent = `Seu token expira em: ${formatarData(expiracao)}`;
+
+        function logout() {
+            localStorage.removeItem('authToken');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 
