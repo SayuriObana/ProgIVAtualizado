@@ -1,0 +1,423 @@
+/* ======= CONFIGURAÇÃO DE TEMAS ======= */
+body {
+    color: var(--text-color);
+}
+
+/* Tema Escuro (Padrão) */
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --button-bg: #1e1e1e;
+    --button-border: #ffffff;
+    --icon-filter: brightness(0) invert(1); /* Ícones brancos no tema escuro */
+    --input-bg: #1e1e1e;
+    --input-text: #ffffff;
+    --card-bg: #1f1f1f;
+    --border-color: #404040;
+    --accent-color: #FFD700;
+    --header-bg: #2a2a2a;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --text-color-light: #cccccc;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --modal-bg: #1e1e1e;
+    --modal-border: #444;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Tema Claro */
+.light-theme {
+    --bg-color: #f5f5f5;
+    --text-color: #222222;
+    --button-bg: #ffffff;
+    --button-border: #222222;
+    --icon-filter: brightness(0); /* Ícones pretos no tema claro */
+    --input-bg: #ffffff;
+    --input-text: #222222;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --accent-color: #FFD700;
+    --header-bg: #ffffff;
+    --hover-bg: rgba(0, 0, 0, 0.05);
+    --text-color-light: #666666;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-bg: #ffffff;
+    --modal-border: #ccc;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Aplicação global dos temas */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme h5,
+.light-theme h6,
+.light-theme p,
+.light-theme span,
+.light-theme label,
+.light-theme div {
+    color: var(--text-color) !important;
+}
+
+/* Ajustando os ícones */
+.light-theme img {
+    filter: var(--icon-filter);
+}
+
+/* ======= ESTILOS GERAIS ======= */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ======= ÍCONES E IMAGENS ======= */
+.menu-icon img,
+.icon-item img {
+    width: 80px;
+    height: 80px;
+    filter: var(--icon-filter);
+    transition: filter 0.3s ease;
+}
+
+/* ======= BOTÃO DE TEMA ======= */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: var(--button-bg);
+    border: 2px solid var(--button-border);
+    color: var(--text-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    z-index: 1002;
+}
+
+.theme-toggle:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Ícones do botão de tema */
+.theme-toggle .fa-sun,
+.theme-toggle .fa-moon {
+    transition: all 0.3s ease;
+}
+
+/* ======= BOTÕES DE AÇÃO ======= */
+.button {
+    background: var(--button-bg);
+    border: 2px solid var(--button-border);
+    color: var(--text-color);
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* ======= GRID DE ÍCONES ======= */
+.icon-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 768px) {
+    .icon-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}
+
+/* ======= MODAIS ======= */
+/* Caixa de login no tema escuro */
+body:not(.light-theme) .modal-content {
+    background-color: var(--modal-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--modal-border);
+}
+
+/* Caixa de login no tema claro */
+body.light-theme .modal-content {
+    background-color: var(--modal-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--modal-border);
+}
+
+.modal-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+/* ======= SIDEBAR ======= */
+body.light-theme .sidebar {
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+}
+
+body.light-theme .sidebar-header {
+    color: var(--text-color);
+}
+
+body.light-theme .sidebar-links li a,
+body.light-theme .sidebar-links li a:hover,
+body.light-theme .dropdown-btn {
+    color: var(--text-color) !important;
+}
+
+body.light-theme .sidebar .dropdown {
+    background-color: var(--card-bg);
+}
+
+body.light-theme .dropdown-btn::after {
+    border-top-color: var(--text-color);
+}
+
+/* ======= CARTÕES E CONTAINERS ======= */
+body.light-theme .container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+body.light-theme .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+body.light-theme .report-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+/* ======= TABELAS ======= */
+body.light-theme table {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+body.light-theme th {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+body.light-theme td {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.light-theme tr:hover {
+    background-color: var(--hover-bg);
+}
+
+/* ======= FORMULÁRIOS ======= */
+body.light-theme input[type="text"],
+body.light-theme input[type="email"],
+body.light-theme input[type="password"],
+body.light-theme input[type="date"],
+body.light-theme input[type="number"],
+body.light-theme textarea,
+body.light-theme select {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--border-color);
+}
+
+body.light-theme input:focus,
+body.light-theme textarea:focus,
+body.light-theme select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+body.light-theme label {
+    color: var(--text-color);
+}
+
+/* ======= BOTÕES ======= */
+body.light-theme .btn {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--button-border);
+}
+
+body.light-theme .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+body.light-theme .btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
+body.light-theme .btn-secondary {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* ======= KANBAN ======= */
+body.light-theme .kanban-column {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+body.light-theme .kanban-column-header {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ======= STATUS BADGES ======= */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-create {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.status-update {
+    background-color: var(--warning-color);
+    color: #212529;
+}
+
+.status-delete {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* ======= LOADING E MENSAGENS ======= */
+body.light-theme .loading {
+    color: var(--text-color);
+}
+
+body.light-theme .error-message {
+    color: var(--error-color);
+}
+
+body.light-theme .success-message {
+    color: var(--success-color);
+}
+
+/* ======= PAGINAÇÃO ======= */
+body.light-theme .pagination {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+body.light-theme .pagination-btn {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+body.light-theme .pagination-btn:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+body.light-theme .pagination-btn:disabled {
+    background-color: var(--border-color);
+    color: var(--text-color-light);
+}
+
+/* ======= FILTROS ======= */
+body.light-theme .filter-select,
+body.light-theme .filter-input {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--border-color);
+}
+
+body.light-theme .filter-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+body.light-theme .filter-btn.clear {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* ======= ANIMAÇÕES ======= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ======= UTILITÁRIOS ======= */
+.text-success { color: var(--success-color) !important; }
+.text-warning { color: var(--warning-color) !important; }
+.text-error { color: var(--error-color) !important; }
+.text-info { color: var(--info-color) !important; }
+
+.bg-success { background-color: var(--success-color) !important; }
+.bg-warning { background-color: var(--warning-color) !important; }
+.bg-error { background-color: var(--error-color) !important; }
+.bg-info { background-color: var(--info-color) !important; }
+
